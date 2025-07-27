@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>অ্যাডমিন - পণ্য যোগ করুন</title>
+  <style>
+    body { font-family: sans-serif; background: #f1f1f1; padding: 20px; }
+    form { max-width: 400px; margin: auto; background: white; padding: 20px; border-radius: 8px; }
+    input, textarea, button { width: 100%; padding: 10px; margin-top: 10px; border-radius: 5px; border: 1px solid #ccc; }
+    button { background: #388e3c; color: white; border: none; cursor: pointer; }
+  </style>
+</head>
+<body>
+
+<h2 style="text-align:center">নতুন পণ্য যোগ করুন</h2>
+
+<form id="productForm">
+  <input type="text" id="productName" placeholder="পণ্যের নাম" required />
+  <input type="number" id="productPrice" placeholder="মূল্য (৳)" required />
+  <input type="url" id="productImage" placeholder="পণ্যের ছবি লিংক" required />
+  <button type="submit">যোগ করুন</button>
+</form>
+
+<script>
+    alert(পণ্য যোগ করা হয়েছে:{name} - ৳${price});
+    // বাস্তবিক ব্যবহারের জন্য ডাটাবেসের সাথে সংযোগ দরকার
+  });
+</script>
+
+</body>
+</html>

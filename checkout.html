@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>অর্ডার করুন - নিত্য বাজার</title>
+  <style>
+    body { font-family: sans-serif; background: #f0f0f0; margin: 0; padding: 20px; }
+    h2 { text-align: center; }
+    form { max-width: 500px; margin: auto; background: white; padding: 20px; border-radius: 8px; }
+    label { display: block; margin-top: 15px; }
+    input, select { width: 100%; padding: 10px; margin-top: 5px; border-radius: 4px; border: 1px solid #ccc; }
+    button { margin-top: 20px; width: 100%; padding: 12px; background: #2e7d32; color: white; border: none; border-radius: 5px; font-size: 16px; }
+  </style>
+</head>
+<body>
+
+<h2>পণ্য অর্ডার করুন</h2>
+<form onsubmit="submitOrder(event)">
+  <label>আপনার নাম:</label>
+  <input type="text" id="name" required />
+
+  <label>মোবাইল নাম্বার:</label>
+  <input type="tel" id="phone" required />
+
+  <label>ঠিকানা:</label>
+  <input type="text" id="address" required />
+
+  <label>পেমেন্ট পদ্ধতি:</label>
+  <select id="payment" required>
+    <option value="">-- পছন্দ করুন --</option>
+    <option>বিকাশ</option>
+    <option>নগদ</option>
+    <option>রকেট</option>
+    <option>ভিসা / মাস্টারকার্ড</option>
+    <option>ক্যাশ অন ডেলিভারি</option>
+  </select>
+
+  <label>পণ্য / পরিমাণ:</label>
+  <textarea id="products" rows="3" placeholder="উদাহরণ: চাল ৫ কেজি, তেল ১ লিটার" required></textarea>
+
+  <button type="submit">অর্ডার করুন</button>
+</form>
+
+<script>
+  function submitOrder(e) {
+    e.preventDefault();
+    alert("অর্ডার সফলভাবে জমা হয়েছে!\nআপনার সাথে দ্রুত যোগাযোগ করা হবে।");
+    localStorage.removeItem("cart");
+    window.location.href = "index.html";
+  }
+</script>
+
+</body>
+</html>

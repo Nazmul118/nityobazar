@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ঝুড়ি - নিত্য বাজার</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; background: #f9f9f9; }
+    h2 { text-align: center; }
+    .item { display: flex; justify-content: space-between; padding: 10px; background: white; margin-bottom: 10px; border-radius: 6px; }
+    .total { text-align: right; font-size: 18px; font-weight: bold; }button { margin-top: 10px; padding: 10px 20px; background: #2e7d32; color: white; border: none; border-radius: 5px; cursor: pointer; }
+  </style>
+</head>
+<body>
+
+<h2>আপনার ঝুড়ি</h2>
+
+<div id="cartItems"></div>
+<p class="total" id="totalAmount">মোট: ৳0</p>
+<button onclick="checkout()">চেকআউট</button>
+
+<script>
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const cartItemsDiv = document.getElementById("cartItems");
+  let total = 0;
+
+  if (cart.length === 0) {
+    cartItemsDiv.innerHTML = "<p>ঝুড়ি খালি।</p>";
+  } else {
+    cart.forEach(item => {
+      const div = document.createElement("div");
+      div.className = "item";
+      div.innerHTML = <span>item.name</span><span>৳{item.price}</span>;
+      cartItemsDiv.appendChild(div);
+      total += item.price;
+    });
+  }
+
+  document.getElementById("totalAmount").innerText = মোট: ৳${total};
+
+  function checkout() {
+    if (cart.length === 0) {
+      alert("আপনার ঝুড়ি খালি!");
+      return;
+    }
+    window.location.href = "checkout.html";
+  }
+</script>
+
+</body>
+</html>
+
+
