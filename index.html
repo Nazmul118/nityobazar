@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>নিত্য বাজার - হোম</title>
+  <style>
+    body { font-family: sans-serif; background: #fafafa; margin: 0; padding: 0; }
+    header { background: #2e7d32; color: white; padding: 15px; text-align: center; }
+    nav a { margin: 0 10px; color: white; text-decoration: none; }
+    .product { border: 1px solid #ddd; margin: 10px; padding: 10px; border-radius: 6px; background: white; }
+    .product img { max-width: 100%; height: auto; border-radius: 6px; }
+    .container { max-width: 900px; margin: auto; padding: 20px; }
+    button { background: #2e7d32; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; }
+  </style>
+</head>
+<body>
+<header>
+  <h1>নিত্য বাজার</h1>
+  <nav>
+    <a href="index.html">হোম</a>
+    <a href="cart.html">ঝুড়ি</a>
+    <a href="checkout.html">অর্ডার</a>
+    <a href="admin.html">অ্যাডমিন</a>
+  </nav>
+</header>
+
+<div class="container">
+  <div class="product">
+    <h3>চাল ৫ কেজি</h3>
+<img src="https://i.ibb.co/r2XDXzY/rice.jpg" alt="চাল ৫ কেজি" />
+    <p>মূল্য: ৳450</p>
+    <button onclick="addToCart('চাল ৫ কেজি', 450)">ঝুড়িতে যোগ করুন</button>
+  </div>
+
+  <div class="product">
+    <h3>তেল ১ লিটার</h3>
+    <img src="https://i.ibb.co/ky9mjbs/oil.jpg" alt="তেল ১ লিটার" />
+    <p>মূল্য: ৳180</p>
+    <button onclick="addToCart('তেল ১ লিটার', 180)">ঝুড়িতে যোগ করুন</button>
+  </div>
+</div>
+
+<script>
+  function addToCart(name, price) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.push({ name, price });
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert(name + " যোগ করা হয়েছে ঝুড়িতে!");
+  }
+</script>
+
+</body>
+</html>
+
